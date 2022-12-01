@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo - gay-functions</title>
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+    />
+    <script src="//unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+    <!-- https://highlightjs.org/static/demo/ -->
+    <link rel="stylesheet" href="./code-theme/solarized-light.css" />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <h1 class="title"></h1>
+    <div>请打开控制台查看</div>
+    <div>快捷跳转：</div>
+    <ul class="anchor-links">
+      <li><a href="#idcardBox">身份证</a></li>
+      <li><a href="#arrayToTreeBox">arrayToTree</a></li>
+      <li><a href="#treeToArrBox">treeToArr</a></li>
+      <li><a href="#flattenArrBox">flattenArr</a></li>
+      <!-- <li><a href="#id"></a></li> -->
+    </ul>
+    <!-- 身份证 -->
+    <div id="idcardBox" class="box">
+      <h4>校验身份证号 isIdCardNo(idNo)</h4>
+      <div>(只校验1900 - 2020 年的)</div>
+      <input id="idcard" type="text" placeholder="身份证号" />
+      <button id="validIdcard">校验</button>
+      <div class="res-box">
+        <pre class="res-code">
+          <code class="js">
+import gf from 'gay-functions';
+const info = gf.sfz.isIdCardNo('422714********917X');
+console.log(info);
+          </code>
+        </pre>
+        <pre class="res-code">
+          <code id="idValidResult" class="json"></code>
+        </pre>
+      </div>
+    </div>
+    <!-- 平级数组转树 -->
+    <div id="arrayToTreeBox" class="box">
+      <h4>平级数组转树形结构 arrayToTree(arr, config)</h4>
+      <div class="res-box">
+        <pre class="res-code">
+          <code class="js">
+import gf from 'gay-functions';
+const treeOrigArr = [
+  { id: '1', title: 'root 1', pid: '0' },
+  { id: '1-1', title: 'child 1-1', pid: '1' },
+  { id: '1-2', title: 'child 1-2', pid: '1' },
+  { id: '1-1-1', title: 'child 1-1-1', pid: '1-1' },
+  { id: '2', title: 'root 2', pid: '0' },
+  { id: '3', title: 'root 3', pid: '0' },
+  { id: '3-1', title: 'child 3-1', pid: '3' },
+  { id: '3-2', title: 'child 3-2', pid: '3' },
+  { id: '3-3', title: 'child 3-3', pid: '3' },
+  { id: '3-3-1', title: 'child 3-3-1', pid: '3-3' },
+];
+const tree = gf.arr.arrayToTree(treeOrigArr, {
+  idKey: 'id',
+  pidKey: 'pid',
+  rootPid: '0',
+  childKey: 'children',
+});
+          </code>
+        </pre>
+        <pre class="res-code">
+          <code id="arrayToTreeResult" class="json"></code>
+        </pre>
+      </div>
+    </div>
+    <!-- 树转平级数组 -->
+    <div id="treeToArrBox" class="box">
+      <h4>树形结构数组扁平化 treeToArr(arr, config)</h4>
+      <div class="res-box">
+        <pre class="res-code">
+          <code class="js">
+// 树形结构数组扁平化 treeToArr - 递归方式
+const tree2Arr = gf.arr.treeToArr(tree, { childKey: 'children' });
+console.log('treeToArr:', tree2Arr); // 结果不含 children 属性
+// 树形结构数组扁平化 treeToArrV2 - 堆栈方式
+// const tree2ArrV2 = gf.arr.treeToArrV2(tree, {
+  // childKey: 'children',
+// });
+// console.log('treeToArrV2:', tree2ArrV2);
+          </code>
+        </pre>
+        <pre class="res-code">
+          <code id="treeToArrResult" class="json"></code>
+        </pre>
+      </div>
+    </div>
+    <!-- 数组扁平化 -->
+    <div id="flattenArrBox" class="box">
+      <h4>数组扁平化 flattenArr(arr)</h4>
+      <div class="res-box">
+        <pre class="res-code">
+          <code class="js">
+const unHndArr = [
+  1,
+  2,
+  3,
+  4,
+  [4, 3, 2, 3],
+  [[5, 5, 5, [8, 9, 10, 11], 12, 12, 12, 14], 46, 47],
+  6,
+  8,
+];
+// 树形结构数组扁平化 flattenArr - 递归方式
+const flatArr = gf.arr.flattenArr(unHndArr);
+console.log('flatArr:', flatArr);
+// 树形结构数组扁平化 flattenArrV2 - 堆栈方式
+// const flatArrV2 = gf.arr.flattenArrV2(unHndArr);
+// console.log('flatArrV2:', flatArrV2);
+          </code>
+        </pre>
+        <pre class="res-code">
+          <code id="flattenArrResult" class="json"></code>
+        </pre>
+      </div>
+    </div>
+    <!-- 回到顶部 -->
+    <div class="back-to-top">
+      <a href="javascript:void(0);">回到顶部</a>
+    </div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script type="module" src="./demo.js"></script>
+    <script>
+      const backToTop = document.querySelector('.back-to-top');
+      backToTop.onclick = function () {
+        window.scrollTo({
+          left: 0,
+          top: 0,
+          // behavior: 'smooth',
+        });
+      };
+    </script>
+  </body>
+</html>

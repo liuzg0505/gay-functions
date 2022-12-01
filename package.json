@@ -1,10 +1,11 @@
 {
   "name": "gay-functions",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "daily-util-functions-for-FE-code-farmer",
   "main": "src/index.js",
   "files": [
-    "src"
+    "src",
+    "examples"
   ],
   "scripts": {},
   "repository": {
