@@ -1,0 +1,24 @@
+{
+  "name": "gay-functions",
+  "version": "0.1.0",
+  "description": "daily-util-functions-for-FE-code-farmer",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liuzg0505/gay-functions"
+  },
+  "homepage": "https://github.com/liuzg0505/gay-functions",
+  "keywords": [
+    "js",
+    "utils",
+    "gay",
+    "身份证",
+    "校验"
+  ],
+  "author": "LeoLiu",
+  "license": "ISC"
+}
