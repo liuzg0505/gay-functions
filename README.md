@@ -70,7 +70,7 @@ const rndNumStr2 = gf.sfz.getRandomNumByLen(10); // '5499938490'
 ```
 
 
-## gf.arr (0.2.0)
+## gf.arr (0.2.1)
 
 > 数组相关方法
 

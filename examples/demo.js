@@ -1,4 +1,4 @@
-import GayFunc from '../src/index.js';
+import GayFunc from '../dist/index.js';
 console.log('GayFunc:', GayFunc);
 const title = document.querySelector('.title');
 title.textContent = GayFunc.sayHello();

@@ -1,13 +1,16 @@
 {
   "name": "gay-functions",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "daily-util-functions-for-FE-code-farmer",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "files": [
     "src",
+    "dist",
     "examples"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "node ./build/build.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/liuzg0505/gay-functions"
@@ -17,9 +20,22 @@
     "js",
     "utils",
     "gay",
+    "idcard",
+    "arr",
+    "tree",
+    "flattern",
     "身份证",
-    "校验"
+    "校验",
+    "数组",
+    "扁平化",
+    "树",
+    "数组处理"
   ],
   "author": "LeoLiu",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "klaw-sync": "^6.0.0",
+    "webpack": "^5.75.0"
+  }
 }
