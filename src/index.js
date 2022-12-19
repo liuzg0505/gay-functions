@@ -1,12 +1,13 @@
 /*!
- * gay-functions v0.2.1
+ * gay-functions v1.1.2
  * https://github.com/liuzg0505/gay-functions
- * 
- * Date: 2022-12-01T17:38Z
+ *
+ * Date: 2022-12-19T16:18Z
  */
 import arr from './arr.js';
 import sfz from './sfz.js';
 const gayFn = {
+  version: '1.1.2',
   arr,
   sfz,
   sayHello: function () {

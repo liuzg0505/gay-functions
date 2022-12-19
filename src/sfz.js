@@ -90,12 +90,13 @@ function getRandomDateByRange(min, max) {
  * 只校验1900 - 2020 年的
  */
 function isIdCardNo(code) {
+  const reg = isIdCardNo.prototype.IdReg;
   var city = citys;
   var tip = '';
   var pass = true;
   if (
     !code ||
-    !/^[1-9][0-9]{5}(19[0-9]{2}|200[0-9]|201[0-9]|2020)(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])[0-9]{3}[0-9xX]$/i.test(
+    !reg.test(
       code
     )
   ) {
@@ -143,6 +144,8 @@ function isIdCardNo(code) {
     gender: gender,
   };
 }
+
+isIdCardNo.prototype.IdReg = /^[1-9][0-9]{5}(19[0-9]{2}|200[0-9]|201[0-9]|2020)(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])[0-9]{3}[0-9xX]$/i;
 
 const sfz = {
   getRandomDateByRange,

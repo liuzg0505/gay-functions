@@ -15,6 +15,7 @@ yarn add gay-functions
 ## 使用
 ```javascript
 import gf from 'gay-functions'
+console.log('version:', gf.version);
 gf.sayHello(); // 'Thanks for using gay-functions!'
 ```
 
@@ -33,7 +34,10 @@ gf.sayHello(); // 'Thanks for using gay-functions!'
 
 > 身份证号码格式校验
 >
-> **只校验1900 - 2020 年的**
+> **默认只校验1900 - 2020 年的**
+> 
+> (v1.1.0) 如果需要校验指定年份的，或者自定义正则，可以修改 gf.sfz.isIdCardNo.prototype.IdReg
+> 
 
 ```javascript
 // 校验身份证号码
@@ -44,6 +48,8 @@ console.log(info);
 //    city: '湖北',
 //    gender: '男',
 // }
+// 例如：校验1900-2019的就这么修改一下年份：
+// gf.sfz.isIdCardNo.prototype.IdReg = /^[1-9][0-9]{5}(19[0-9]{2}|200[0-9]|201[0-9])(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])[0-9]{3}[0-9xX]$/i;
 ```
 
 

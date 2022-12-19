@@ -1,5 +1,7 @@
 import GayFunc from '../dist/index.js';
-console.log('GayFunc:', GayFunc);
+console.log('gf:', GayFunc);
+console.log('gf.sfz.isIdCardNo.prototype.IdReg:', GayFunc.sfz.isIdCardNo.prototype.IdReg);
+// GayFunc.sfz.isIdCardNo.prototype.IdReg = /^[1-9][0-9]{5}(19[0-9]{2}|200[0-9]|201[0-9])(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])[0-9]{3}[0-9xX]$/i;
 const title = document.querySelector('.title');
 title.textContent = GayFunc.sayHello();
 
